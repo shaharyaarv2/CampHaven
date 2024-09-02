@@ -17,7 +17,7 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
     await campground.deleteMany({});
-    for(let i = 0 ; i < 10 ; i++){
+    for(let i = 0 ; i < 50 ; i++){
         let randomcities = Math.floor(Math.random() * 1000);
         const camp = new campground({
             location: `${cities[randomcities].city} , ${cities[randomcities].state}`,
@@ -27,6 +27,7 @@ const seedDB = async () => {
     }
 }
 
-seedDB().then(() => {
-    mongoose.connection.close();
-})
+seedDB();
+// seedDB().then(() => {
+//     mongoose.connection.close();
+// })
